@@ -1,0 +1,11 @@
+half day tracking
+teacher attendance
+homework requirements
+develop schema further
+late arrival tracking for students/teachers
+results returned considering entries that have already been made
+can django be hosted on aws?
+
+bulk import
+install on web server
+teacher logins

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+{% extends "plappshome\cmbase.html" %}
+  {% block body_block %}
+    <div class="container">
+      <h1>Upload Configuration Memo</h1>
+      <div class="jumbotron">
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" class="btn btn-primary btn-lg" value="Submit">
+          <input type="button" class="btn btn-secondary btn-lg" value="Cancel">
+        </form>
+      </div>
+    </div>
+  {% endblock %}

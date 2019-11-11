@@ -1,0 +1,109 @@
+
+
+{ "_comment": "For text replacement from cmauto DB, use '<<field>>' otherwise to replace from this json, use '[[field]]'",
+  "FCA_Ku": {
+              "desc": "FCA setting",
+              "pages": [
+                        "S15_TWTA_Ku_<<twta>>", "S15_Receiver"
+                      ],
+              "header": "Change the [[desc]] for transponder channel: <<channel>>:",
+              "display": "Open the following visions pages:\n\t[[pages]]",
+              "steps": {"1": "Start PMENU and enter 'SES-15'",
+                        "2": "Follow the PMENU prompts and specify the new [[desc]] of <<chgitemto>> for Ku TWTA <<twta>>",
+                        "3": "Verify:\nKU_LCAMP-<<twta>>_FCA_D = <<chgitemto>>",
+                        "4": "Continue with PMENU"
+                      },
+                "footer": "Exit PMENU"
+
+            },
+    "GCA_Ku": {
+              "desc": "GCA setting",
+              "pages": [
+                        "S15_TWTA_Ku_<<twta>>"
+                      ],
+              "header": "Change the [[desc]] for transponder channel: <<channel>>:",
+              "display": "Open the following visions pages:\n [[pages]]",
+              "steps": {"1": "Start PMENU and enter 'SES-15'",
+                        "2": "Choose Option 1: TWTAs (Power, Setting and DWELL)",
+                        "3": "Choose Option 2: Ku (HTS and NA)",
+                        "4": "Choose Option 2: LCAMP Attenuators",
+                        "5": "Choose the correct LCAMP group",
+                        "6": "Choose '<<twta>>'",
+                        "7": "Enter 'GCA'",
+                        "8": "Choose 'SPECIFY'",
+                        "9": "Enter '<<chgitemto>>'",
+                        "10": "Select 'OK'",
+                        "11": "Verify:\n\t KU_LCAMP-<<twta>>_GCA_D = <<chgitemto>>",
+                        "12": "Continue with PMENU"
+                      },
+                "footer": "Exit PMENU",
+                "limits": "None"
+              },
+      "Mode_Ku": {
+                "desc": "mode setting",
+                "pages": [
+                          "S15_TWTA_Ku_<<twta>>"
+                        ],
+                "header": "Change the [[desc]] for transponder channel: <<channel>>:",
+                "display": "Open the following visions pages:\n [[pages]]",
+                "steps": {"1": "Start PMENU and enter 'SES-15'",
+                          "2": "Choose Option 1: TWTAs (Power, Setting and DWELL)",
+                          "3": "Choose Option 2: Ku (HTS and NA)",
+                          "4": "Choose Option 3: LCAMP Mode",
+                          "5": "Enter '<<twta>>'",
+                          "6": "Enter '<<chgitemto>>'",
+                          "7": "Choose 'USE'",
+                          "8": "Select 'OK'",
+                          "9": "Verify:\n\t KU_LCAMP-<<twta>>_Mode_St = <<chgitemto>>",
+                          "10": "Continue with PMENU"
+                        },
+                  "footer": "Exit PMENU",
+                  "limits": ""
+                },
+        "SFD_Ku": {
+                  "desc": "SFD setting to <<sfd>> dBW/m^2",
+                  "pages": [
+                            "S15_TWTA_Ku_<<twta>>"
+                          ],
+                  "header": "Change the [[desc]] for transponder channel: <<channel>>:",
+                  "display": "Open the following visions pages:\n\t [[pages]]",
+                  "steps": {"1": "Start PMENU and enter 'SES-15'",
+                            "2": "Choose Option 1: TWTAs (Power, Setting and DWELL)",
+                            "3": "Choose Option 2: Ku (HTS and NA)",
+                            "4": "Choose Option 2: LCAMP Attenuators",
+                            "5": "Choose the correct LCAMP group",
+                            "6": "Choose '<<twta>>'",
+                            "7": "Enter 'FCA'",
+                            "8": "Choose 'SPECIFY'",
+                            "9": "Enter '<<chgitemto>>'",
+                            "10": "Select 'OK'",
+                            "11": "Verify:\n\tKU_LCAMP-<<twta>>_FCA_D = <<chgitemto>>",
+                            "12": "Continue with PMENU"
+                          },
+                    "cfenv": "NominalCF",
+                    "footer": "Exit PMENU"
+                  },
+        "ALC_OBO_Ku": {
+                  "desc": "ALC OBO setting",
+                  "pages": [
+                            "S15_TWTA_Ku_<<twta>>"
+                          ],
+                  "header": "Change the [[desc]] for transponder channel: <<channel>>:",
+                  "display": "Open the following visions pages:\n\t [[pages]]",
+                  "steps": {"1": "Start PMENU and enter 'SES-15'",
+                            "2": "Choose Option 1: TWTAs (Power, Setting and DWELL)",
+                            "3": "Choose Option 2: Ku (HTS and NA)",
+                            "4": "Choose Option 2: LCAMP Attenuators",
+                            "5": "Choose the correct LCAMP group",
+                            "6": "Choose '<<twta>>'",
+                            "7": "Enter 'GCA'",
+                            "8": "Choose 'SPECIFY'",
+                            "9": "Enter '<<chgitemto>>'",
+                            "10": "Select 'OK'",
+                            "11": "Verify:\n\tKU_LCAMP-<<twta>>_GCA_D = <<chgitemto>>",
+                            "12": "Continue with PMENU"
+                          },
+                    "cfenv": "NominalCF",
+                    "footer": "Exit PMENU"
+                  }
+}
