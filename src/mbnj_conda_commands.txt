@@ -8,3 +8,5 @@ pyth
 on manage.py startapp mbnjattend
 
 add appname to settings.py file under 'INSTALLED_APPS'
+
+to start the app : python manage.py runserver
