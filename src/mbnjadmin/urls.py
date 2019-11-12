@@ -20,4 +20,6 @@ from mbnjattend import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mbnjattend.urls')),
+    path('', include('mbnjreport.urls')),   
+
 ]

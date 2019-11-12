@@ -4,9 +4,10 @@ conda activate mbnjEnv
 
 django-admin startproject mbnjadmin
 
-pyth
-on manage.py startapp mbnjattend
+python manage.py startapp mbnjattend
 
 add appname to settings.py file under 'INSTALLED_APPS'
 
-to start the app : python manage.py runserver
+to start the app : 
+conda activate mbnjEnv
+python manage.py runserver
