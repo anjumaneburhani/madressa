@@ -5,10 +5,10 @@ from mbnjattend import views
 app_name = 'mbnjattend'
 
 urlpatterns =[
-        path('', views.IndexView.as_view(), name='index'),
-        path(r'mbnjattend/<int:year>/<int:pk>/submit/', views.submit, name='submit'),
-        path(r'mbnjattend/<int:year>/<int:pk>/', views.check_attend, name='attend_check'),
-        path(r'mbnjattend/<int:year>/', views.select_year, name='year'),
+        path('mbnjattend/<int:year>/<int:pk>/submit/', views.attend_submit, name='submit'),
+        path('mbnjattend/<int:year>/<int:pk>/', views.check_attend, name='attend_check'),
+        path('mbnjattend/<int:year>/', views.select_year, name='year'),
         #path(r'mbnjattend/submit/', views.submit, name='submit'),
-        path(r'mbnjattend/', views.load_attend, name='attend_splash'),
+        path('mbnjattend/', views.load_attend, name='attend_splash'),
+
 ]
