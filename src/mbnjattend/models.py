@@ -18,25 +18,26 @@ class Course(models.Model):
 
 
 class Faculty(models.Model):
-    fname = models.CharField(max_length = 90, verbose_name='First Name')
-    lname = models.CharField(max_length = 90, verbose_name='Last Name')
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    #fname = models.CharField(max_length = 90, verbose_name='First Name')
+    #lname = models.CharField(max_length = 90, verbose_name='Last Name')
     facid = models.CharField(max_length = 90, verbose_name='Faculty ID', unique=True)
     facidtype = models.CharField(max_length = 90, choices = mbrid_choices, verbose_name='ID Type')
     role = models.CharField(max_length = 90, verbose_name='Faculty Role')
     contact1 = models.CharField(max_length = 90, verbose_name='Contact 1')
     c1phone = models.CharField(max_length = 12, verbose_name='Phone 1')
-    c1desc = models.CharField(max_length = 90, verbose_name='Desc 1')
+    c1desc = models.CharField(max_length = 90, verbose_name='Description')
     contact2 = models.CharField(max_length = 12, verbose_name='Contact 2', null=True, blank=True)
     c2phone = models.CharField(max_length = 12, verbose_name='Phone 2', null=True, blank=True)
-    c2desc = models.CharField(max_length = 90, verbose_name='Desc 2', null=True, blank=True)
+    c2desc = models.CharField(max_length = 90, verbose_name='Description', null=True, blank=True)
     address = models.CharField(max_length = 255, verbose_name='Address')
     city = models.CharField(max_length = 90, verbose_name='City')
     state = models.CharField(max_length = 90, verbose_name='State')
-    zipcode =  models.CharField(max_length = 90, verbose_name='Type')
+    zipcode =  models.CharField(max_length = 90, verbose_name='Zipcode')
     gender = models.CharField(max_length = 90, choices=gender_choices, verbose_name='Gender')
 
     def __str__(self):
-        return str(self.lname) + ', ' + str(self.fname)
+        return str(self.user.last_name) + ', ' + str(self.user.first_name)
 
 
 class Grade(models.Model):
@@ -79,36 +80,36 @@ class Roster(models.Model):
 
 
 class Student(models.Model):
-    fname = models.CharField(max_length = 90, verbose_name='First Name')
-    lname = models.CharField(max_length = 90, verbose_name='Last Name')
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    #fname = models.CharField(max_length = 90, verbose_name='First Name')
+    #lname = models.CharField(max_length = 90, verbose_name='Last Name')
     stuid = models.CharField(max_length = 90, verbose_name='Student ID', unique=True)
     stuidtype = models.CharField(max_length = 90, choices = mbrid_choices, verbose_name='ID Type')
     type = models.CharField(max_length = 90, verbose_name='Student Type', null=True, blank=True)
     contact1 = models.CharField(max_length = 90, verbose_name='Contact 1')
     c1phone = models.CharField(max_length = 12, verbose_name='Phone 1')
-    c1desc = models.CharField(max_length = 90, verbose_name='Desc 1')
+    c1desc = models.CharField(max_length = 90, verbose_name='Description')
     contact2 = models.CharField(max_length = 12, verbose_name='Contact 2', null=True, blank=True)
     c2phone = models.CharField(max_length = 12, verbose_name='Phone 2', null=True, blank=True)
-    c2desc = models.CharField(max_length = 90, verbose_name='Desc 2', null=True, blank=True)
+    c2desc = models.CharField(max_length = 90, verbose_name='Description', null=True, blank=True)
     address = models.CharField(max_length = 255, verbose_name='Address')
     city = models.CharField(max_length = 90, verbose_name='City')
     state = models.CharField(max_length = 90, verbose_name='State')
-    zipcode =  models.CharField(max_length = 90, verbose_name='Type')
+    zipcode =  models.CharField(max_length = 90, verbose_name='Zipcode')
     gender = models.CharField(max_length = 90, choices=gender_choices, verbose_name='Gender')
     grade = models.ForeignKey('Grade', on_delete=models.CASCADE, verbose_name='Grade')
 
     def __str__(self):
-        return str(self.lname) + ', ' + str(self.fname)
+        return str(self.user.last_name) + ', ' + str(self.user.first_name)
 
 
 class Transaction(models.Model):
     type = models.CharField(max_length = 90, verbose_name='Type')
-    transdate = models.DateTimeField(verbose_name='Transaction Date',
-                                      auto_now_add=True)
+    transdate = models.DateTimeField(auto_now_add=True, verbose_name='Transaction Date')
     status = models.CharField(max_length = 90, verbose_name='Status', blank=True, null=True)
     desc = models.CharField(max_length = 90, verbose_name='Description', blank=True, null=True)
     student = models.ForeignKey('Student', on_delete=models.CASCADE)
     admin = models.ForeignKey('Faculty', on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.type) + ' > ' + str(self.Student)
+        return str(self.type) + ' > ' + str(self.student)

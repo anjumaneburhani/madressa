@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "mbnjattend\mbbase.html" %}
+{% block body_block %}
+  <p></p>
+  <div class="container">
+    <h1>New User Registration</h1>
+  </div>
+  <div class="container">
+    {% if registered %}
+      <p>Thank you for registering!</p>
+    {% else %}
+      <h3>Fill out the form:</h3>
+      <p>
+        <form method="POST">
+          {% csrf_token %}
+          {{user_form.as_p}}
+          <input type="submit" class="btn btn-primary btn-lg" value="Register">
+        </form>
+      </p>
+    {% endif %}
+  </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends "mbnjattend\mbbase.html" %}
+{% block body_block %}
+  <p></p>
+  <div class="container">
+    <h1>Please Login</h1>
+    <form action="{% url 'login' %}" method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" name="username" placeholder="Enter username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" name="password">
+      </div>
+      <input type="submit" class="btn btn-primary btn-lg" value="Login">
+    </form>
+  </div>
+  <div class="container">
+    <p><a class="nav-link" href="{% url 'register' %}">New users - please click here</a></p>
+  </div>
+{% endblock %}
